@@ -47,7 +47,7 @@ def foo():
 
 # Task 8
 
-![Kismet Image][https://upload.wikimedia.org/wikipedia/commons/0/03/Kismet-IMG_6007-black.jpg]
+![Kismet Image](https://upload.wikimedia.org/wikipedia/commons/0/03/Kismet-IMG_6007-black.jpg)
 
 
 [Click here to view image][https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg]
