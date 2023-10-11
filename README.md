@@ -36,7 +36,7 @@ This is another paragraph. Lorem ipsum...
 > This is a block quote. It should be in block quotes! Lorem ipsum...
 
 # This is a large heading.  
-`Inline code: make this word inline.`  
+Inline code: make this word `inline`.  
 # This is a large heading.
 
 ```python
@@ -46,6 +46,9 @@ def foo():
 ```
 
 # Task 8
+
+![Kismet Image][https://upload.wikimedia.org/wikipedia/commons/0/03/Kismet-IMG_6007-black.jpg]
+
 
 [Click here to view image][https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg]
 
@@ -68,3 +71,4 @@ def my_function():
 
 
 [def]: https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg
+[def2]: https://upload.wikimedia.org/wikipedia/commons/0/03/Kismet-IMG_6007-black.jpg
