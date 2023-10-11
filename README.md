@@ -42,11 +42,13 @@ This is another paragraph. Lorem ipsum...
 ```python
 def foo():
     if not bar:
-        return True
+        return True 
+```
 
 # Task 8
 
-[https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg](https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg)
+[Click here to view image][https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg]
+
 
 
 # Task 9
@@ -62,3 +64,7 @@ def foo():
 ```python
 def my_function():
   print("Hello from a function")
+```
+
+
+[def]: https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg
