@@ -8,32 +8,41 @@
     <style>
         /* Style for the code section */
         pre {
-            background-color: #f5f5f5; /* Grey background */
-            padding: 15px; /* Spacing around the code */
-            border-radius: 5px; /* Rounded corners */
-            width: fit-content; /* Only as wide as it needs to be */
-            margin: 20px 0; /* Margin on top and bottom */
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Style for the table */
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
         }
     </style>
 </head>
 
 <body>
     <h1>IT Fundamentals</h1>
-    
-    <!-- New Subheadings -->
-    <h2>Today's Tasks</h2>
-    <h3>HTML Conversion</h3>
-    
-    <!-- Inline Code -->
-    <pre><code>def foo():
+    <h3>Subheading 1</h3>
+    <h4>Subheading 2</h4>
+
+    <pre>
+def foo():
     if not bar:
         return True
-</code></pre>
+    </pre>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Kismet-IMG_6007-black.jpg/800px-Kismet-IMG_6007-black.jpg" alt="Image">
-    
-    <!-- Modified Link -->
-    Here is a <a href="https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg" title="Link to the picture">link to the picture</a>.
+    <img src="robot-image-url" alt="Robot Image">
+    <p><a href="robot-image-url">Here is a link to the picture.</a></p>
 
     <ul>
         <li>Fabio Dauti</li>
@@ -42,40 +51,37 @@
         <li>Bachelor of Information Technology</li>
     </ul>
 
-    <!-- Modified Table -->
-    <table style="width: 60%;">
-        <thead>
-            <tr>
-                <th style="text-align: right;">Number</th>
-                <th style="text-align: left;">Color</th>
-                <th style="text-align: center;">Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="text-align: right;">1</td>
-                <td style="text-align: left;">Red</td>
-                <td style="text-align: center;">M</td>
-            </tr>
-            <tr>
-                <td style="text-align: right;">2</td>
-                <td style="text-align: left;">Blue</td>
-                <td style="text-align: center;">L</td>
-            </tr>
-            <tr>
-                <td style="text-align: right;">3</td>
-                <td style="text-align: left;">Green</td>
-                <td style="text-align: center;">S</td>
-            </tr>
-        </tbody>
+    <table>
+        <tr>
+            <th>Number</th>
+            <th>Color</th>
+            <th>Size</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Red</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Blue</td>
+            <td>L</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Green</td>
+            <td>S</td>
+        </tr>
     </table>
 
-    <pre><code>
+    <pre>
 def my_function():
     print("Hello from a function")
-</code></pre>
+    </pre>
+
 </body>
 
 </html>
+
 
 
