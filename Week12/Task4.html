@@ -3,18 +3,18 @@
 <head>
     <title>Week 12</title>
     <script>
-        var counter = 0; // Initialize the counter
+        var counter = 0; // start the counter
 
         function countClicks(element) {
-            counter += 1; // Increment the counter
-            var output = 'The link was pressed ' + counter + ' times.'; // Construct the output message
-            document.getElementById('boxy').innerHTML = output; // Set the innerHTML of the paragraph with ID 'boxy' to the output message
+            counter += 1; // increase the counter
+            var output = 'The link was pressed ' + counter + ' times.'; // create the output message
+            document.getElementById('boxy').innerHTML = output; // set the innerHTML of the paragraph with ID 'boxy' to the output message
         }
     </script>
 </head>
 <body>
     <h1>JavaScript Demo</h1>
-    <a href="#" onclick="countClicks(this);">Click me</a> <!-- Call the function when the link is clicked -->
-    <p id="boxy"></p> <!-- This is where the output will be displayed -->
+    <a href="#" onclick="countClicks(this);">Click me</a> <!-- call the function when the link is clicked -->
+    <p id="boxy"></p> <!-- this is where the output will be displayed -->
 </body>
 </html>
