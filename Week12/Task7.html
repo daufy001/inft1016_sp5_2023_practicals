@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 7 Combined</title>
+
+    <script>
+        // start of the click counter
+        var counter = 0;
+
+        // the function to handle click counting
+        function countClicks(element) {
+            counter += 1;  // increase the counter
+            var output = 'The link was pressed ' + counter + ' times.';
+            element.innerHTML = output;  // update the content of the clicked element
+        }
+    </script>
+</head>
+<body>
+
+<h1>Task 7: Combined Demo - Click Counter & Image Swap</h1>
+
+<!-- click counter section -->
+<!-- this section contains a link that, when clicked, will call the countClicks function and pass the link element itself -->
+<a href="#" onclick="countClicks(this);">Click me</a>
+
+<!-- image swap section -->
+<!-- this section displays an imagee. When hovered over, the image will change. -->
+<p>Hover over the image below:</p>
+<img src="http://www.outgrabe.net/cat01.jpg" 
+     onmouseover="this.src='http://www.outgrabe.net/cat02.jpg'" 
+     onmouseout="this.src='http://www.outgrabe.net/cat01.jpg'" 
+     alt="A cat image" />
+
+</body>
+</html>
