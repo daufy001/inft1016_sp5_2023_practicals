@@ -1,4 +1,4 @@
-/* Task 7: Custom CSS variables */
+/* Custom Properties (Variables) */
 :root {
     --base-font-color: rgb(131, 148, 150);
     --secondary-font-color: rgb(88, 110, 117);
@@ -8,24 +8,29 @@
     --c-yellow: rgb(181, 137, 0);
     --c-orange: rgb(203, 75, 22);
     --c-red: rgb(220, 50, 47);
-    --c-magenta: rgb(211, 54,130);
+    --c-magenta: rgb(211, 54, 130);
     --c-violet: rgb(108, 113, 196);
     --c-blue: rgb(38, 139, 210);
     --c-cyan: rgb(42, 161, 152);
     --c-green: rgb(133, 153, 0);
 }
 
-/* Task 8: Styles based on variables */
+/* Basic styles */
 body {
     background-color: var(--c-background-color);
+    color: var(--base-font-color);
+    max-width: 800px;
+    margin: 0 auto; /* Centers the content container */
 }
 
 header, footer {
     background-color: var(--c-background-highlights);
+    text-align: center;
 }
 
-main, header, footer {
-    color: var(--base-font-color);
+header h1 {
+    color: var(--c-yellow);
+    font-size: 150%;
 }
 
 article a {
@@ -36,33 +41,26 @@ article a:hover {
     color: var(--c-orange);
 }
 
-/* Task 9: Additional Styles */
-article h3, 
-article p {
-    border: 3px solid var(--c-cyan);
-    padding: 10px;
+article h2, article h3 {
+    padding-top: 50px;
 }
 
-header h1 {
-    text-align: center;
-    font-size: 150%;
-    color: var(--c-yellow);
+article h2, article h3, article p {
+    border: 3px solid var(--c-cyan);
+    padding: 10px; /* Added padding for visual comfort */
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-nav li {
-    margin: 0 15px;
+    list-style-type: none; /* Removes bullet points */
+    display: flex; /* Apply flex layout */
+    justify-content: center; /* Align items to the center */
+    padding: 0; /* Removes default padding */
 }
 
 aside {
     color: var(--c-green);
+    flex: 1; /* Flex value for the aside */
+    padding: 15px;
 }
 
 aside a {
@@ -71,4 +69,20 @@ aside a {
 
 aside a:hover {
     color: var(--c-blue);
+}
+
+/* Main content layout */
+main {
+    display: flex; /* Uses flexbox for the layout */
+    justify-content: space-between; /* Space between article and aside */
+}
+
+article {
+    flex: 2; /* Flex value for the article to give it more space */
+    margin-right: 20px; /* Spacing between article and aside */
+}
+
+/* Assuming the related links are inside an aside element */
+aside {
+    flex: 1; /* Flex value for the aside */
 }
