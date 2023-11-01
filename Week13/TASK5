@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+    <style>
+        /* Task 1: Font sizes for h1 and h2 */
+        h1 { 
+            font-size: 1.33em; 
+        }
+        h2 { 
+            font-size: 1.17em; 
+        }
+
+        /* Task 2: Bottom margin on paragraph tags */
+        p {
+            margin: 0 0 0.5em 0;
+        }
+
+        /* Task 3: Margin adjustments for h1 and h2 */
+        h1, h2 {
+            margin: 0.83em 0 0.17em 0;
+        }
+
+        /* Task 4: Font properties for the first paragraph */
+        p:first-of-type {
+            font: 0.17em/1.33 Verdana, sans-serif;
+        }
+
+        /* Task 5: Text indentation, Box Model, and Background properties */
+        p {
+            text-indent: 5em;
+        }
+
+        p.first {
+            text-indent: 0em;
+        }
+
+        div#wrapper {
+            width: 100px;
+        }
+
+        div#banner {
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            width: 30px;
+        }
+
+        body {
+            background: white url('image.gif') repeat fixed top left;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Sample content to see the styling in action -->
+    <h1>Welcome to the Second Page</h1>
+    <h2>Subheading</h2>
+    <p class="first">This is the first paragraph after the heading. Notice the special font styling.</p>
+    <p>This is a subsequent paragraph with a text indent. Observe the difference from the first paragraph.</p>
+    <div id="wrapper">
+        <div id="banner">Banner Content</div>
+    </div>
+</body>
+</html>
