@@ -1,11 +1,18 @@
-@import "another-styles.css";
+/* Importing another style sheet (replace "someOtherStyles.css" with your actual stylesheet path if any) */
+@import "someOtherStyles.css"; 
 
+/* Define custom properties (CSS Variables) */
 :root {
+    /* Font colors */
     --base-font-color: rgb(131, 148, 150);
     --secondary-font-color: rgb(88, 110, 117);
     --emphasised-font: rgb(147, 161, 161);
+
+    /* Background colors */
     --c-background-color: rgb(0, 43, 54);
     --c-background-highlights: rgb(7, 54, 66);
+
+    /* Palette colors */
     --c-yellow: rgb(181, 137, 0);
     --c-orange: rgb(203, 75, 22);
     --c-red: rgb(220, 50, 47);
@@ -16,32 +23,32 @@
     --c-green: rgb(133, 153, 0);
 }
 
+/* Styles for the body */
+/* Set the background color of the page */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: black;
+    background-color: var(--c-background-color);
 }
 
-h1 {
-    color: #333;
-    font-size: 24px;
+/* Styles for the header and footer */
+/* Set the background color of the header and footer */
+header, footer {
+    background-color: var(--c-background-highlights);
 }
 
-/* ... any other styles you had ... */
-
-@media screen {
-    body {
-        color: black;
-        background-color: yellow;
-    }
+/* Styles for the main content, header, and footer */
+/* Set the text color in the main, footer, and header */
+main, footer, header {
+    color: var(--base-font-color);
 }
 
-@media print {
-    body {
-        color: black;
-        background-color: white;
-    }
-    div#navigation {
-        display: none;
-    }
+/* Styles for the links within the article */
+/* Set link color to c-magenta */
+article a {
+    color: var(--c-magenta);
+}
+
+/* Hover effect for the links within the article */
+/* Change link color to c-orange on hover */
+article a:hover {
+    color: var(--c-orange);
 }
