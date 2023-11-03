@@ -3,50 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockchain Technology: Present & Future</title>
+    <title>Blockchain Technology Showcase</title>
+    <style>
+        /* Basic reset for padding and margin */
+        body, h1, p, figure {
+            margin: 0;
+            padding: 0;
+        }
+        /* Simple page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        /* Header styling */
+        header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        /* Section for click counter with a border */
+        .click-counter {
+            border: 2px solid #007bff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        /* Styling for the image container */
+        .image-swap {
+            border: 2px solid #28a745;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        /* Styling for the image itself */
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // JavaScript variable for click counter
+        var counter = 0;
+
+        // Function to count clicks
+        function countClicks(element) {
+            counter++;
+            element.textContent = `The link was pressed ${counter} times.`;
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Blockchain Technology</h1>
-        <nav>
-            <!-- Navigation goes here -->
-        </nav>
-    </header>
-    
-    <main>
-        <section id="introduction">
-            <h2>Introduction to Blockchain</h2>
-            <p>
-                <!-- Introduction to blockchain technology -->
-            </p>
-        </section>
 
-        <section id="current-uses">
-            <h2>Current Uses of Blockchain</h2>
-            <p>
-                <!-- Content on how blockchain is used today -->
-            </p>
-        </section>
+<header>
+    <h1>Blockchain Technology: Present and Future</h1>
+</header>
 
-        <section id="future-uses">
-            <h2>Future of Blockchain</h2>
-            <p>
-                <!-- Insights into the potential future uses of blockchain -->
-            </p>
-        </section>
+<section class="click-counter">
+    <!-- Click counter section -->
+    <a href="#" onclick="countClicks(this.nextElementSibling);">Click me</a>
+    <p>Link has not been clicked yet.</p>
+</section>
 
-        <section id="interactive-demo">
-            <h2>Interactive Blockchain Demonstration</h2>
-            <!-- Interactive demos or JavaScript simulations could go here -->
-        </section>
-    </main>
+<section class="image-swap">
+    <!-- Image swap section on hover -->
+    <figure>
+        <img src="http://www.outgrabe.net/cat01.jpg" 
+             onmouseover="this.src='http://www.outgrabe.net/cat02.jpg'"
+             onmouseout="this.src='http://www.outgrabe.net/cat01.jpg'"
+             alt="A cat image representing blockchain technology" />
+        <figcaption>Hover over the image to see the blockchain action.</figcaption>
+    </figure>
+</section>
 
-    <footer>
-        <!-- Footer content goes here -->
-    </footer>
-
-    <script>
-        // JavaScript code related to blockchain demos or page functionality
-    </script>
 </body>
 </html>
