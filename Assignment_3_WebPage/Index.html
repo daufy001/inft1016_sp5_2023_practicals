@@ -4,120 +4,139 @@
   <meta charset="utf-8">
   <title>Blockchain Technology Overview</title>
   <style>
-    /* Define CSS variables for easy theme management */
+    /* CSS Variable definitions for light theme */
     :root {
-      --primary-color: #ffffff; /* White used for primary elements like header, nav, and footer */
-      --secondary-color: #f0f0f0; /* Light grey for secondary elements like buttons */
-      --bg-color: #e0e0e0; /* Light grey for background color for the body */
-      --font-color: #333333; /* Dark grey for primary font color */
-      --heading-color: #000000; /* Black for heading text like h1 and h2 */
+      --primary-color: #ffffff; /* white color for primary elements */
+      --secondary-color: #f0f0f0; /* light grey for secondary elements and button background */
+      --bg-color: #e0e0e0; /* off white background for overall page background */
+      --font-color: #333333; /* dark grey color for text */
+      --heading-color: #000000; /* black color for headings */
     }
 
-    /* Define dark theme color overrides when data-theme attribute on <html> is 'dark' */
+    /* CSS Variable overrides for dark theme */
     [data-theme="dark"] {
-      --primary-color: #000000; /* Black for primary background in dark theme */
-      --secondary-color: #181818; /* Dark grey for secondary elements in dark theme */
-      --bg-color: #282828; /* Darker grey for background in dark theme */
-      --font-color: #dddddd; /* Light grey for font in dark theme */
-      --heading-color: #ffffff; /* White for heading text in dark theme */
+      --primary-color: #000000; /* black color for primary elements in dark theme */
+      --secondary-color: #181818; /* dark grey for secondary elements in dark theme */
+      --bg-color: #282828; /* dark grey for page background in dark theme */
+      --font-color: #dddddd; /* light grey color for text in dark theme */
+      --heading-color: #ffffff; /* white color for headings in dark theme */
     }
 
-    /* General body styling */
+    /* Body and universal style settings */
     body {
-      background-color: var(--bg-color); /* Background color taken from CSS variable */
-      color: var(--font-color); /* Font color taken from CSS variable */
-      font-family: Arial, sans-serif; /* Arial font with sans-serif as the fallback */
-      line-height: 1.6; /* Line height for paragraph text */
-      padding: 0; /* No padding to allow full width/height usage */
-      margin: 0; /* No margin to allow full width/height usage */
-      transition: background-color 0.3s, color 0.3s; /* Transition for color and background changes */
+      background-color: var(--bg-color); /* applies variable for background color */
+      color: var(--font-color); /* applies text color from variable */
+      font-family: Arial, sans-serif; /* sets default font to Arial, sans-serif as a fallback */
+      line-height: 1.6; /* sets line height for all text */
+      padding: 0; /* removes default padding */
+      margin: 0; /* removes default margin */
+      transition: background-color 0.3s, color 0.3s; /* smooth transition for theme change */
     }
 
-    /* Header, navigation list, and footer shared styling */
+    /* Header, navigation, and footer share background and text color settings */
     header, nav ul, footer {
-      background-color: var(--primary-color); /* Background color taken from CSS variable */
-      color: var(--heading-color); /* Color for text in these elements from variable */
+      background-color: var(--primary-color); /* background color for header and footer */
+      color: var(--heading-color); /* text color for header and footer */
     }
 
-    /* Style navigation links and footer text */
+    /* Styles for links in the navigation and footer */
     nav ul li a, footer {
-      color: var(--heading-color); /* Ensures consistent color for text based on theme */
+      color: var(--heading-color); /* ensures text color consistency in navigation and footer */
     }
 
-    /* Featured image styling */
+    /* Style settings for the featured image */
     #featured-image {
-      max-width: 100%; /* Ensures image is not wider than its container */
-      max-height: 500px; /* Limits image height */
-      height: auto; /* Ensures the image height scales with the width to maintain aspect ratio */
-      display: block; /* Block display to ensure it takes up the full width it needs */
-      margin: 20px auto; /* Centers the image within its container */
+      max-width: 100%; /* ensures image is responsive and does not overflow its container */
+      max-height: 500px; /* limits image height */
+      height: auto; /* maintains aspect ratio of the image */
+      display: block; /* block display to fit the width of the page */
+      margin: 20px auto; /* centers the image horizontally */
     }
 
-    /* Styling for headings h1 and h2 */
+    /* Headings (h1, h2) color settings */
     h1, h2 {
-      color: var(--heading-color); /* Heading color based on current theme */
+      color: var(--heading-color); /* text color for headings based on theme */
     }
 
-    /* Button styling */
+    /* Button specific styles */
     button {
-      background-color: var(--secondary-color); /* Background color from variable */
-      color: var(--font-color); /* Text color from variable */
-      padding: 10px; /* Padding around the button text */
-      border: none; /* No border for a modern look */
-      cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+      background-color: var(--secondary-color); /* background color for buttons */
+      color: var(--font-color); /* text color for buttons */
+      padding: 10px; /* padding inside buttons */
+      border: none; /* removes border from buttons */
+      cursor: pointer; /* changes cursor to pointer to signify clickable items */
     }
 
-    /* Button hover effects */
+    /* Button hover effect for interactivity */
     button:hover {
-      background-color: var(--font-color); /* Invert the colors on hover for a visual effect */
-      color: var(--secondary-color); /* Invert text color for contrast against the new background */
+      background-color: var(--font-color); /* changes background color on hover */
+      color: var(--secondary-color); /* changes text color on hover for contrast */
     }
   </style>
   <script>
-    // Function to update the heading with the user's name from the query string
-    function updateHeadingFromQueryString() {
-      // Parse the query string into key-value pairs
-      const queryParams = new URLSearchParams(window.location.search);
-      // Look for the 'user_name' parameter
-      const userName = queryParams.get('user_name');
-      // If a user name is found, update the heading text
-      if (userName) {
-        document.getElementById('greeting').textContent = 'Hello, ' + userName;
+    // Function to set the theme from local storage on page load
+    function setThemeFromLocalStorage() {
+      const storedTheme = localStorage.getItem('themePreference'); // Retrieves stored theme value
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme); // Sets the page theme to the stored value
       }
     }
 
-    // Function to toggle between light and dark themes
+    // Function to toggle the theme and store the preference
     function toggleTheme() {
-      // Get the current theme from the document's root element
-      var currentTheme = document.documentElement.getAttribute("data-theme");
-      // Determine the new theme based on the current setting
-      var newTheme = currentTheme === "dark" ? "light" : "dark";
-      // Apply the new theme to the document's root element
-      document.documentElement.setAttribute("data-theme", newTheme);
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme); // Updates the theme
+      localStorage.setItem('themePreference', newTheme); // Stores the new theme preference
     }
 
     // Function to display the current date and time in the footer
     function displayDateTime() {
-      // Create a new date object for the current date and time
       const now = new Date();
-      // Convert the date and time to a locale string format
       const dateTimeString = now.toLocaleString();
-      // Update the text content of the 'datetime' span with the formatted date and time
-      document.getElementById('datetime').textContent = dateTimeString;
+      document.getElementById('datetime').textContent = dateTimeString; // Updates the footer with current date and time
     }
 
-    // Function to update the heading with the user's name from the input field
-    function updateHeadingWithInputValue() {
-      // Get the user name from the input field
-      var userName = document.getElementById('user_name').value;
-      // If the user name is not empty, update the heading text
+    // Function to read the 'user_name' from the query string and local storage
+    function setNameFromQueryStringAndStorage() {
+      const queryParams = new URLSearchParams(window.location.search);
+      let userName = queryParams.get('user_name'); // Gets 'user_name' from URL
+
       if (userName) {
-        document.getElementById('greeting').textContent = 'Hello, ' + userName;
+        localStorage.setItem('userName', userName); // Stores 'user_name' if present in URL
+      } else {
+        userName = localStorage.getItem('userName'); // Retrieves 'user_name' from local storage if not in URL
       }
+
+      if (userName) {
+        updateGreeting(userName); // Updates the greeting with 'user_name'
+      }
+    }
+
+    // Function to set the greeting text
+    function updateGreeting(userName) {
+      const greetingElement = document.getElementById('greeting');
+      greetingElement.textContent = 'Hello, ' + userName; // Sets the greeting text
+    }
+
+    // Function to handle the 'Apply' button click for setting the user's name
+    function updateHeadingWithInputValue() {
+      const userNameInput = document.getElementById('user_name').value;
+      if (userNameInput) {
+        localStorage.setItem('userName', userNameInput); // Stores the user name in local storage
+        updateGreeting(userNameInput); // Updates the greeting with the new input
+      }
+    }
+
+    // Page initialization function
+    function initializePage() {
+      setThemeFromLocalStorage(); // Sets the saved theme
+      displayDateTime(); // Displays the current date and time
+      setNameFromQueryStringAndStorage(); // Sets the user's name from storage or URL
     }
   </script>
 </head>
-<body data-theme="light" onload="displayDateTime(); updateHeadingFromQueryString();">
+<body onload="initializePage();">
   <header>
     <!-- Header content with a dynamic greeting and theme toggle button -->
     <h1 id="greeting">Blockchain Technology: A Transformative Force</h1>
