@@ -4,97 +4,127 @@
   <meta charset="utf-8">
   <title>Blockchain Technology Overview</title>
   <style>
+    /* Define CSS variables for easy theme management */
     :root {
-      --primary-color: #ffffff;
-      --secondary-color: #f0f0f0;
-      --bg-color: #e0e0e0;
-      --font-color: #333333;
-      --heading-color: #000000;
+      --primary-color: #ffffff; /* White used for primary elements like header, nav, and footer */
+      --secondary-color: #f0f0f0; /* Light grey for secondary elements like buttons */
+      --bg-color: #e0e0e0; /* Light grey for background color for the body */
+      --font-color: #333333; /* Dark grey for primary font color */
+      --heading-color: #000000; /* Black for heading text like h1 and h2 */
     }
 
+    /* Define dark theme color overrides when data-theme attribute on <html> is 'dark' */
     [data-theme="dark"] {
-      --primary-color: #000000;
-      --secondary-color: #181818;
-      --bg-color: #282828;
-      --font-color: #dddddd;
-      --heading-color: #ffffff;
+      --primary-color: #000000; /* Black for primary background in dark theme */
+      --secondary-color: #181818; /* Dark grey for secondary elements in dark theme */
+      --bg-color: #282828; /* Darker grey for background in dark theme */
+      --font-color: #dddddd; /* Light grey for font in dark theme */
+      --heading-color: #ffffff; /* White for heading text in dark theme */
     }
 
+    /* General body styling */
     body {
-      background-color: var(--bg-color);
-      color: var(--font-color);
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 0;
-      margin: 0;
-      transition: background-color 0.3s, color 0.3s;
+      background-color: var(--bg-color); /* Background color taken from CSS variable */
+      color: var(--font-color); /* Font color taken from CSS variable */
+      font-family: Arial, sans-serif; /* Arial font with sans-serif as the fallback */
+      line-height: 1.6; /* Line height for paragraph text */
+      padding: 0; /* No padding to allow full width/height usage */
+      margin: 0; /* No margin to allow full width/height usage */
+      transition: background-color 0.3s, color 0.3s; /* Transition for color and background changes */
     }
 
+    /* Header, navigation list, and footer shared styling */
     header, nav ul, footer {
-      background-color: var(--primary-color);
-      color: var(--heading-color);
+      background-color: var(--primary-color); /* Background color taken from CSS variable */
+      color: var(--heading-color); /* Color for text in these elements from variable */
     }
 
+    /* Style navigation links and footer text */
     nav ul li a, footer {
-      color: var(--heading-color);
+      color: var(--heading-color); /* Ensures consistent color for text based on theme */
     }
 
+    /* Featured image styling */
     #featured-image {
-      max-width: 100%;
-      max-height: 500px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
+      max-width: 100%; /* Ensures image is not wider than its container */
+      max-height: 500px; /* Limits image height */
+      height: auto; /* Ensures the image height scales with the width to maintain aspect ratio */
+      display: block; /* Block display to ensure it takes up the full width it needs */
+      margin: 20px auto; /* Centers the image within its container */
     }
 
+    /* Styling for headings h1 and h2 */
     h1, h2 {
-      color: var(--heading-color);
+      color: var(--heading-color); /* Heading color based on current theme */
     }
 
+    /* Button styling */
     button {
-      background-color: var(--secondary-color);
-      color: var(--font-color);
-      padding: 10px;
-      border: none;
-      cursor: pointer;
+      background-color: var(--secondary-color); /* Background color from variable */
+      color: var(--font-color); /* Text color from variable */
+      padding: 10px; /* Padding around the button text */
+      border: none; /* No border for a modern look */
+      cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
     }
 
+    /* Button hover effects */
     button:hover {
-      background-color: var(--font-color);
-      color: var(--secondary-color);
+      background-color: var(--font-color); /* Invert the colors on hover for a visual effect */
+      color: var(--secondary-color); /* Invert text color for contrast against the new background */
     }
   </style>
   <script>
+    // Function to update the heading with the user's name from the query string
     function updateHeadingFromQueryString() {
-      // Parsing the query string to find 'user_name'
+      // Parse the query string into key-value pairs
       const queryParams = new URLSearchParams(window.location.search);
+      // Look for the 'user_name' parameter
       const userName = queryParams.get('user_name');
-      // If 'user_name' is present, update the heading
+      // If a user name is found, update the heading text
       if (userName) {
         document.getElementById('greeting').textContent = 'Hello, ' + userName;
       }
     }
 
+    // Function to toggle between light and dark themes
     function toggleTheme() {
+      // Get the current theme from the document's root element
       var currentTheme = document.documentElement.getAttribute("data-theme");
+      // Determine the new theme based on the current setting
       var newTheme = currentTheme === "dark" ? "light" : "dark";
+      // Apply the new theme to the document's root element
       document.documentElement.setAttribute("data-theme", newTheme);
     }
 
+    // Function to display the current date and time in the footer
     function displayDateTime() {
+      // Create a new date object for the current date and time
       const now = new Date();
-      const dateTimeString = now.toLocaleString(); // Format the date and time nicely
+      // Convert the date and time to a locale string format
+      const dateTimeString = now.toLocaleString();
+      // Update the text content of the 'datetime' span with the formatted date and time
       document.getElementById('datetime').textContent = dateTimeString;
     }
 
+    // Function to update the heading with the user's name from the input field
+    function updateHeadingWithInputValue() {
+      // Get the user name from the input field
+      var userName = document.getElementById('user_name').value;
+      // If the user name is not empty, update the heading text
+      if (userName) {
+        document.getElementById('greeting').textContent = 'Hello, ' + userName;
+      }
+    }
   </script>
 </head>
 <body data-theme="light" onload="displayDateTime(); updateHeadingFromQueryString();">
   <header>
+    <!-- Header content with a dynamic greeting and theme toggle button -->
     <h1 id="greeting">Blockchain Technology: A Transformative Force</h1>
     <button onclick="toggleTheme()">Toggle Theme</button>
   </header>
   <nav>
+    <!-- Navigation menu with links to page sections -->
     <ul>
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#applications">Applications</a></li>
@@ -103,27 +133,36 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <!-- Main content area for the blockchain overview -->
   <main>
+    <!-- Introduction section with a brief overview of blockchain technology -->
     <section id="introduction">
       <h2>Introduction to Blockchain</h2>
       <p>Blockchain technology is a decentralized digital ledger that facilitates secure, transparent, and tamper-proof transactions. It has the potential to revolutionize a multitude of sectors by enabling trustless agreements and eliminating the need for intermediaries.</p>
     </section>
+    <!-- Applications section with examples of how blockchain is used -->
     <section id="applications">
       <h2>Applications of Blockchain</h2>
       <p>Blockchain's applications extend beyond cryptocurrency, impacting areas such as supply chain management, healthcare data security, and real estate transactions, offering enhanced traceability, security, and efficiency.</p>
     </section>
+    <!-- Challenges section discussing obstacles in blockchain adoption -->
     <section id="challenges">
       <h2>Challenges in Blockchain Adoption</h2>
       <p>Despite its potential, blockchain faces significant challenges such as scalability issues, energy consumption, and regulatory uncertainty which must be addressed to achieve widespread adoption.</p>
     </section>
+    <!-- Future Outlook section with predictions for blockchain's impact -->
     <section id="future">
       <h2>Future Outlook of Blockchain</h2>
       <p>Looking forward, blockchain is poised for evolutionary growth with advancements like smart contracts and decentralized finance (DeFi), promising to further disrupt traditional business models and empower users with more control over their digital assets.</p>
     </section>
+    <!-- Image display area with buttons to change featured content -->
     <section id="image-display">
+      <!-- Featured image with description -->
       <img id="featured-image" src="https://editor.analyticsvidhya.com/uploads/82739BlockChain_System.jpg" alt="Blockchain System Overview">
       <p id="image-info">"Blockchain System Overview" - A representation of the structure of blockchain technology.</p>
+      <!-- Buttons to change the featured image and its description -->
       <div>
+        <!-- Each button changes the featured image and description displayed -->
         <button onclick="changeContent('https://us.norton.com/content/dam/blogs/images/norton/am/blockchain-technology-explained.png', 'Blockchain Structure', 'Example of how the Blockchain network is connected.')">Blockchain Structure</button>
         <button onclick="changeContent('https://m.foolcdn.com/media/dubs/images/how-blockchain-works-infographic.width-880.png', 'How Blockchain Works', 'Here is what you need to know about blockchain networks.')">How Blockchain Works</button>
         <button onclick="changeContent('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p3dhgD5AwVbXtyT-hIZWlg.png', 'Blockchain Applications', 'Examples of how Blockchain can be used in the real world.')">Blockchain Applications</button>
@@ -132,12 +171,25 @@
       </div>
     </section>
   </main>
+  <!-- Footer with dynamic date and time display and copyright notice -->
   <footer>
     <p>Current Date and Time: <span id="datetime"></span></p>
     <p>© 2023 Blockchain Technology Overview. All rights reserved.</p>
   </footer>
-  <!-- Removed form submission for name input to prevent default form behavior -->
+  <!-- User input field for the name with an associated button to apply the name to the header -->
   <input type="text" id="user_name" name="user_name" placeholder="Enter your name!">
-  <button onclick="updateHeadingFromQueryString()">Apply!</button>
+  <button onclick="updateHeadingWithInputValue()">Apply!</button>
+  
+  <script>
+    function changeContent(imageSrc, imageAlt, imageInfo) {
+      // Change the source of the image
+      document.getElementById('featured-image').src = imageSrc;
+      // Change the alt text of the image
+      document.getElementById('featured-image').alt = imageAlt;
+      // Update the image information description
+      document.getElementById('image-info').textContent = imageInfo;
+    }
+  </script>
 </body>
 </html>
+
