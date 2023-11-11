@@ -3,82 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockchain Technology Showcase</title>
-    <style>
-        /* Basic reset for padding and margin */
-        body, h1, p, figure {
-            margin: 0;
-            padding: 0;
-        }
-        /* Simple page styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        /* Header styling */
-        header {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        /* Section for click counter with a border */
-        .click-counter {
-            border: 2px solid #007bff;
-            padding: 10px;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-        /* Styling for the image container */
-        .image-swap {
-            border: 2px solid #28a745;
-            padding: 10px;
-            margin-top: 20px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        /* Styling for the image itself */
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Blockchain Technology Overview</title>
     <script>
-        // JavaScript variable for click counter
-        var counter = 0;
-
-        // Function to count clicks
-        function countClicks(element) {
-            counter++;
-            element.textContent = `The link was pressed ${counter} times.`;
+        // JavaScript function to change the image and the paragraph content
+        function changeContent(imageSrc, imageAlt, imageInfo) {
+            document.getElementById('featured-image').src = imageSrc;
+            document.getElementById('featured-image').alt = imageAlt;
+            document.getElementById('image-info').textContent = imageInfo;
         }
     </script>
 </head>
 <body>
-
-<header>
-    <h1>Blockchain Technology: Present and Future</h1>
-</header>
-
-<section class="click-counter">
-    <!-- Click counter section -->
-    <a href="#" onclick="countClicks(this.nextElementSibling);">Click me</a>
-    <p>Link has not been clicked yet.</p>
-</section>
-
-<section class="image-swap">
-    <!-- Image swap section on hover -->
-    <figure>
-        <img src="http://www.outgrabe.net/cat01.jpg" 
-             onmouseover="this.src='http://www.outgrabe.net/cat02.jpg'"
-             onmouseout="this.src='http://www.outgrabe.net/cat01.jpg'"
-             alt="A cat image representing blockchain technology" />
-        <figcaption>Hover over the image to see the blockchain action.</figcaption>
-    </figure>
-</section>
-
+    <header>
+        <h1>Blockchain Technology in Various Sectors</h1>
+    </header>
+    <main>
+        <img id="featured-image" src="your-default-image-url.jpg" alt="Default Image" style="width:100%;">
+        <p id="image-info">Default image description or photographer credit.</p>
+        <div>
+            <button onclick="changeContent('https://us.norton.com/content/dam/blogs/images/norton/am/blockchain-technology-explained.png', 'Blockchain Structure', 'Example of how the Blockchain network is connected.')">Image 1 Name</button>
+            <button onclick="changeContent('https://m.foolcdn.com/media/dubs/images/how-blockchain-works-infographic.width-880.png', 'How Blockchain works', 'Here is what you need to know about blockchain networks.')">Image 2 Name</button>
+            <button onclick="changeContent('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p3dhgD5AwVbXtyT-hIZWlg.png', 'Applications of Blockchain', 'Examples of how Blockchain can be used in the real world.')">Image 3 Name</button>
+            <button onclick="changeContent('https://www.edushots.com/upload/articles-images/d44bbeb2318bd57709d6e743174877c11e5981f4.jpeg', 'Features of Blockchain', 'What makes Blockchain Technology interesting')">Image 4 Name</button>
+            <button onclick="changeContent('https://101blockchains.com/wp-content/uploads/2020/01/companies-using-blockchain-technology.png', 'Companies using Blockchain Technology', '50 companies using Blockchain Technology.')">Image 5 Name</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blockchain Overview</p>
+    </footer>
 </body>
 </html>
