@@ -65,10 +65,14 @@
     }
   </style>
   <script>
-    function changeContent(imageSrc, imageAlt, imageInfo) {
-      document.getElementById('featured-image').src = imageSrc;
-      document.getElementById('featured-image').alt = imageAlt;
-      document.getElementById('image-info').textContent = imageInfo;
+    function updateHeadingFromQueryString() {
+      // Parsing the query string to find 'user_name'
+      const queryParams = new URLSearchParams(window.location.search);
+      const userName = queryParams.get('user_name');
+      // If 'user_name' is present, update the heading
+      if (userName) {
+        document.getElementById('greeting').textContent = 'Hello, ' + userName;
+      }
     }
 
     function toggleTheme() {
@@ -77,22 +81,15 @@
       document.documentElement.setAttribute("data-theme", newTheme);
     }
 
-    // Function to display current date and time
     function displayDateTime() {
       const now = new Date();
       const dateTimeString = now.toLocaleString(); // Format the date and time nicely
       document.getElementById('datetime').textContent = dateTimeString;
     }
-   // Function to update the heading with the user's name from the input field
-    function updateHeadingWithInputValue() {
-      var userName = document.getElementById('user_name').value;
-      if (userName) {
-        document.getElementById('greeting').textContent = 'Hello, ' + userName;
-      }
-    }
+
   </script>
 </head>
-<body data-theme="light" onload="displayDateTime()">
+<body data-theme="light" onload="displayDateTime(); updateHeadingFromQueryString();">
   <header>
     <h1 id="greeting">Blockchain Technology: A Transformative Force</h1>
     <button onclick="toggleTheme()">Toggle Theme</button>
@@ -139,10 +136,8 @@
     <p>Current Date and Time: <span id="datetime"></span></p>
     <p>© 2023 Blockchain Technology Overview. All rights reserved.</p>
   </footer>
-  <form onsubmit="event.preventDefault(); updateHeadingWithInputValue();">
-    <input type="text" id="user_name" name="user_name" placeholder="Enter your name!">
-    <button type="submit">Apply!</button>
-  </form>
+  <!-- Removed form submission for name input to prevent default form behavior -->
+  <input type="text" id="user_name" name="user_name" placeholder="Enter your name!">
+  <button onclick="updateHeadingFromQueryString()">Apply!</button>
 </body>
 </html>
-
