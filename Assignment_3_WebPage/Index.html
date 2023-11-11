@@ -76,9 +76,16 @@
       var newTheme = currentTheme === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", newTheme);
     }
+
+    // Function to display current date and time
+    function displayDateTime() {
+      const now = new Date();
+      const dateTimeString = now.toLocaleString(); // Format the date and time nicely
+      document.getElementById('datetime').textContent = dateTimeString;
+    }
   </script>
 </head>
-<body data-theme="light">
+<body data-theme="light" onload="displayDateTime()">
   <header>
     <h1>Blockchain Technology: A Transformative Force</h1>
     <button onclick="toggleTheme()">Toggle Theme</button>
@@ -122,6 +129,7 @@
     </section>
   </main>
   <footer>
+    <p>Current Date and Time: <span id="datetime"></span></p>
     <p>© 2023 Blockchain Technology Overview. All rights reserved.</p>
   </footer>
 </body>
