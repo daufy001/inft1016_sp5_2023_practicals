@@ -78,7 +78,7 @@ Thank you to my tutor, Mahdi Shafiei, in the Information Technology Fundamentals
 
 ## Badges
 
-Use badges to reflect build status, test coverage, or other metrics. For example:
+
 
 ![GitHub stars](https://img.shields.io/github/stars/daufy001/inft1016_sp5_2023_practicals.svg?style=social&label=Star)
 ![GitHub forks](https://img.shields.io/github/forks/daufy001/inft1016_sp5_2023_practicals.svg?style=social&label=Fork)
