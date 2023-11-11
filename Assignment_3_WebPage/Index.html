@@ -83,11 +83,26 @@
       const dateTimeString = now.toLocaleString(); // Format the date and time nicely
       document.getElementById('datetime').textContent = dateTimeString;
     }
+   // New function to update the heading with the user's name
+    function updateHeadingWithUsername() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const userName = urlParams.get('user_name'); // Assuming 'user_name' is the name of your input field
+      if (userName) {
+        document.getElementById('greeting').textContent = 'Hello, ' + userName;
+      }
+    }
+
+    // Modify the existing onload function to include the new username update functionality
+    function pageLoadFunctions() {
+      displayDateTime();
+      updateHeadingWithUsername();
+    }
   </script>
 </head>
-<body data-theme="light" onload="displayDateTime()">
+<body data-theme="light" onload="pageLoadFunctions()">
   <header>
-    <h1>Blockchain Technology: A Transformative Force</h1>
+    <h1 id="greeting">Blockchain Technology: A Transformative Force</h1>
     <button onclick="toggleTheme()">Toggle Theme</button>
   </header>
   <nav>
