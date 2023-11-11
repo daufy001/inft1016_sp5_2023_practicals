@@ -4,66 +4,64 @@
   <meta charset="utf-8">
   <title>Blockchain Technology Overview</title>
   <style>
+    :root {
+      --primary-color: #ffffff;
+      --secondary-color: #f0f0f0;
+      --bg-color: #e0e0e0;
+      --font-color: #333333;
+      --heading-color: #000000;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #000000;
+      --secondary-color: #181818;
+      --bg-color: #282828;
+      --font-color: #dddddd;
+      --heading-color: #ffffff;
+    }
+
     body {
+      background-color: var(--bg-color);
+      color: var(--font-color);
       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 0;
       margin: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      transition: background-color 0.3s, color 0.3s;
     }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+
+    header, nav ul, footer {
+      background-color: var(--primary-color);
+      color: var(--heading-color);
     }
-    nav ul {
-      background: #555;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
+
+    nav ul li a, footer {
+      color: var(--heading-color);
     }
-    nav ul li {
-      float: left;
-    }
-    nav ul li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    nav ul li a:hover {
-      background-color: #111;
-    }
-    #image-display {
-      max-width: 600px; /* Adjust as necessary */
-      margin: 20px auto;
-      text-align: center;
-    }
+
     #featured-image {
       max-width: 100%;
       max-height: 500px;
       height: auto;
       display: block;
-      margin: 0 auto;
+      margin: 20px auto;
     }
-    .dark-theme {
-      background-color: #333;
-      color: #fff;
+
+    h1, h2 {
+      color: var(--heading-color);
     }
-    .dark-theme header,
-    .dark-theme nav ul {
-      background: #000;
+
+    button {
+      background-color: var(--secondary-color);
+      color: var(--font-color);
+      padding: 10px;
+      border: none;
+      cursor: pointer;
     }
-    .dark-theme nav ul li a {
-      color: #fff;
-    }
-    .dark-theme footer {
-      background: #000;
-      color: #fff;
+
+    button:hover {
+      background-color: var(--font-color);
+      color: var(--secondary-color);
     }
   </style>
   <script>
@@ -72,12 +70,15 @@
       document.getElementById('featured-image').alt = imageAlt;
       document.getElementById('image-info').textContent = imageInfo;
     }
+
     function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
+      var currentTheme = document.documentElement.getAttribute("data-theme");
+      var newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
     }
   </script>
 </head>
-<body>
+<body data-theme="light">
   <header>
     <h1>Blockchain Technology: A Transformative Force</h1>
     <button onclick="toggleTheme()">Toggle Theme</button>
@@ -108,17 +109,15 @@
       <h2>Future Outlook of Blockchain</h2>
       <p>Looking forward, blockchain is poised for evolutionary growth with advancements like smart contracts and decentralized finance (DeFi), promising to further disrupt traditional business models and empower users with more control over their digital assets.</p>
     </section>
-    <!-- The image and buttons from Part 1 -->
     <section id="image-display">
-      <img id="featured-image" src="https://editor.analyticsvidhya.com/uploads/82739BlockChain_System.jpg" alt="Blockchain System Overview" style="width:100%;">
+      <img id="featured-image" src="https://editor.analyticsvidhya.com/uploads/82739BlockChain_System.jpg" alt="Blockchain System Overview">
       <p id="image-info">"Blockchain System Overview" - A representation of the structure of blockchain technology.</p>
       <div>
         <button onclick="changeContent('https://us.norton.com/content/dam/blogs/images/norton/am/blockchain-technology-explained.png', 'Blockchain Structure', 'Example of how the Blockchain network is connected.')">Blockchain Structure</button>
         <button onclick="changeContent('https://m.foolcdn.com/media/dubs/images/how-blockchain-works-infographic.width-880.png', 'How Blockchain Works', 'Here is what you need to know about blockchain networks.')">How Blockchain Works</button>
-<button onclick="changeContent('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p3dhgD5AwVbXtyT-hIZWlg.png', 'Blockchain Applications', 'Examples of how Blockchain can be used in the real world.')">Blockchain Applications</button>
-<button onclick="changeContent('https://www.edushots.com/upload/articles-images/d44bbeb2318bd57709d6e743174877c11e5981f4.jpeg', 'Blockchain Features', 'What makes Blockchain Technology interesting.')">Blockchain Features</button>
-<button onclick="changeContent('https://101blockchains.com/wp-content/uploads/2020/01/companies-using-blockchain-technology.png', 'Blockchain in Business', '50 companies using Blockchain Technology.')">Blockchain in Business</button>
-
+        <button onclick="changeContent('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p3dhgD5AwVbXtyT-hIZWlg.png', 'Blockchain Applications', 'Examples of how Blockchain can be used in the real world.')">Blockchain Applications</button>
+        <button onclick="changeContent('https://www.edushots.com/upload/articles-images/d44bbeb2318bd57709d6e743174877c11e5981f4.jpeg', 'Blockchain Features', 'What makes Blockchain Technology interesting.')">Blockchain Features</button>
+        <button onclick="changeContent('https://101blockchains.com/wp-content/uploads/2020/01/companies-using-blockchain-technology.png', 'Blockchain in Business', '50 companies using Blockchain Technology.')">Blockchain in Business</button>
       </div>
     </section>
   </main>
